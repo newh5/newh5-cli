@@ -1,8 +1,14 @@
 {
-  "name": "tqb-h5-cli",
-  "version": "1.0.0",
+  "name": "newh5-cli",
+  "version": "0.0.1",
   "description": "HTML5 boilerplate and build tool",
   "main": "index.js",
+  "bin": {
+    "newh5": "./bin/newh5.js"
+  },
+  "engines": {
+    "node": ">=6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,16 +18,22 @@
   },
   "keywords": [
     "tqb",
+    "newh5",
+    "activity",
     "cli",
     "HTML5",
     "boilerplate",
     "build",
     "tool"
   ],
-  "author": "taoqianbao",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/taoqianbao/tqb-h5-cli/issues"
   },
-  "homepage": "https://github.com/taoqianbao/tqb-h5-cli#readme"
+  "homepage": "https://github.com/taoqianbao/tqb-h5-cli#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "commander": "^2.14.1"
+  },
+  "author": "taoqianbao",
+  "license": "MIT"
 }
