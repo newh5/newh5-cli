@@ -1,6 +1,6 @@
 {
   "name": "newh5-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "HTML5 boilerplate and build tool",
   "author": "taoqianbao",
   "main": "index.js",
@@ -35,8 +35,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "commander": "^2.14.1",
-    "ora": "^2.0.0",
-    "request": "^2.83.0"
+    "ora": "^2.0.0"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",

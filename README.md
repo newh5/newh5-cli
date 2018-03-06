@@ -4,12 +4,13 @@ newh5 - 面向开发者的灵活可扩展的 HTML5 构建工具，提供命令�
 
 公司H5活动页整体解决方案
 
-[GitLab](https://about.gitlab.com/)
-[npm 私服工具verdaccio](https://github.com/verdaccio/verdaccio)
-[jenkins](https://jenkins.io/)
-
 ![架构图](./screenshot/artiche.png)
 
+## 知识图
+- [GitLab](https://about.gitlab.com/)
+- [npm 私服工具verdaccio](https://github.com/verdaccio/verdaccio)
+- [jenkins](https://jenkins.io/)
+- [模版](https://github.com/newh5-templates)
 
 ## 工具文档
 - [commitizen: git commit message](https://taoqianbao.github.io/2018/03/06/git/git-cz/)

@@ -5,18 +5,8 @@ const axios = require('axios')
 const spinner = ora('Loading template list').start()
 const reposUrl = 'https://api.github.com/users/newh5-templates/repos'
 
-// const request = require('request')
-// request({
-//     url: reposUrl,
-//     headers: {
-//         'User-Agent': 'elf-cli'
-//     }
-// }, function (err, res, body) {
-//     console.log(body)
-// })
-
 axios.get(reposUrl, {
-    headers: { 'User-Agent': 'elf-cli' }
+    headers: { 'User-Agent': 'newh5-cli' }
 })
     .then(response => {
         spinner.stop()
