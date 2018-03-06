@@ -9,3 +9,7 @@ newh5 - 面向开发者的灵活可扩展的 HTML5 构建工具，提供命令�
 [jenkins](https://jenkins.io/)
 
 ![架构图](./screenshot/artiche.png)
+
+
+## 工具文档
+- [commitizen: git commit message](https://taoqianbao.github.io/2018/03/06/git/git-cz/)
