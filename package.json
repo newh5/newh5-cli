@@ -1,6 +1,6 @@
 {
   "name": "newh5-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "HTML5 boilerplate and build tool",
   "author": "taoqianbao",
   "main": "index.js",
@@ -11,6 +11,7 @@
     "node": ">=6"
   },
   "scripts": {
+    "commit": "git-cz",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,9 +33,14 @@
   },
   "homepage": "https://github.com/taoqianbao/tqb-h5-cli#readme",
   "dependencies": {
-    "commander": "^2.14.1"
+    "axios": "^0.18.0",
+    "commander": "^2.14.1",
+    "ora": "^2.0.0",
+    "request": "^2.83.0"
   },
   "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
     "commitizen": "^2.9.6",
     "cz-conventional-changelog": "^2.1.0"
   },

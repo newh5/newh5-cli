@@ -13,3 +13,5 @@ newh5 - 面向开发者的灵活可扩展的 HTML5 构建工具，提供命令�
 
 ## 工具文档
 - [commitizen: git commit message](https://taoqianbao.github.io/2018/03/06/git/git-cz/)
+- [Elegant terminal spinner](https://www.npmjs.com/package/ora)
+- [axios文档](https://github.com/axios/axios)
