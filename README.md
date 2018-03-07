@@ -14,5 +14,12 @@ newh5 - 面向开发者的灵活可扩展的 HTML5 构建工具，提供命令�
 
 ## 工具文档
 - [commitizen: git commit message](https://taoqianbao.github.io/2018/03/06/git/git-cz/)
-- [Elegant terminal spinner](https://www.npmjs.com/package/ora)
-- [axios文档](https://github.com/axios/axios)
+- [ora: Elegant terminal spinner](https://www.npmjs.com/package/ora)
+- [axios: Promise based HTTP client for the browser and node.js](https://github.com/axios/axios)
+- [commander: the complete solution for node.js command-line programs](https://www.npmjs.com/package/commander) 
+- [commander: API Document](http://tj.github.io/commander.js/) 
+- [cross-spawn: A cross platform solution to node's spawn and spawnSync.](https://github.com/moxystudio/node-cross-spawn)
+
+
+## Tips
+cross-spawn 模块是解决跨平台调用系统命令的问题，Node.js 的子进程 (child_process) 模块下有一 spawn 函数，可以用于调用系统上的命令。

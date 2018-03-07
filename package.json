@@ -35,6 +35,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "commander": "^2.14.1",
+    "cross-spawn": "^6.0.5",
     "ora": "^2.0.0"
   },
   "devDependencies": {
