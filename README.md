@@ -19,7 +19,17 @@ newh5 - 面向开发者的灵活可扩展的 HTML5 构建工具，提供命令�
 - [commander: the complete solution for node.js command-line programs](https://www.npmjs.com/package/commander) 
 - [commander: API Document](http://tj.github.io/commander.js/) 
 - [cross-spawn: A cross platform solution to node's spawn and spawnSync.](https://github.com/moxystudio/node-cross-spawn)
+- [chalk: Terminal string styling done right](https://github.com/chalk/chalk)
+- [less]()
+- [node-sass]()
+- [sass]()
 
 
 ## Tips
 cross-spawn 模块是解决跨平台调用系统命令的问题，Node.js 的子进程 (child_process) 模块下有一 spawn 函数，可以用于调用系统上的命令。
+
+
+## loaders
+css-loader exports-loader
+file-loader html-loader image-webpack-loader less-loader postcss-loader sass-loader
+script-loader style-loader stylus-loader url-loader
