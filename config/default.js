@@ -30,13 +30,7 @@ module.exports = {
     rules: [],
     plugins: [],
     postcssPlugins: [],
-
-    /**
-     * webpack.CommonsChunkPlugin 默认配置
-     * 详细描述参考：https://webpack.js.org/plugins/commons-chunk-plugin/
-     */
-    // commonsChunkPluginOptions: null,
-
+    
     /**
      * webpack.DefinePlugin 默认配置
      * 详细描述参考：https://webpack.js.org/plugins/define-plugin
@@ -149,8 +143,15 @@ module.exports = {
         enableCSSCompress: true,
         enableHTMLCompress: false, // 注意：可能会与 htmlWebpackPluginOptions.minify 冲突
         enableImageMin: false, // 用 image-webpack-loader 对图片进行压缩
+        
+        /**
+         * webpack4 new options
+         */
+        optimizationOptions: {
+        },
 
         /**
+         * [outtime]
          * uglifyjs-webpack-plugin 默认配置
          * 详细描述参考：https://github.com/webpack-contrib/uglifyjs-webpack-plugin#options
          */

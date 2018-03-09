@@ -33,6 +33,12 @@ npm install newh5-cli
 - [sass]()
 - [download-git-repo: Download and extract a git repository (GitHub, GitLab, Bitbucket) from node.](https://www.npmjs.com/package/download-git-repo)
 - [inquirer: A collection of common interactive command line user interfaces.](https://www.npmjs.com/package/inquirer#documentation)
+- [archiver]()
+- [extract-text-webpack-plugin]()
+
+## Webpack插件
+- [webpack.DefinePlugin: 这个插件用来定义全局变量，在webpack打包的时候会对这些变量做替换。]()
+- [webpack.ProvidePlugin: 自动加载模块，而不必到处 import 或 require 。](https://doc.webpack-china.org/plugins/provide-plugin/)
 
 
 ## Tips

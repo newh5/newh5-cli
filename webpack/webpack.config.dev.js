@@ -21,7 +21,6 @@ const cssLoader = [{
 }]
 
 module.exports = merge(baseWebpackConfig, {
-    mode: config.NEWH5_ENV, //"development" | "production" | "none"
     module: {
         rules: [{
             test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|jpg|gif)(\?\S*)?$/,

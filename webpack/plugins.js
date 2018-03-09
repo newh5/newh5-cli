@@ -18,13 +18,11 @@ const addOneOrMorePlugins = _.curry(function (pluginClass, plugins, options) {
 })
 
 const addHtmlWebpackPlugins = addOneOrMorePlugins(HtmlWebpackPlugin)
-// const addCommonChunkPlugins = addOneOrMorePlugins(webpack.optimize.CommonsChunkPlugin)
 
 const getPlugins = function (config) {
   var plugins = [].concat(config.plugins)
 
   addHtmlWebpackPlugins(plugins, config.htmlWebpackPluginOptions)
-  // addCommonChunkPlugins(plugins, config.commonsChunkPluginOptions)
 
   plugins.push(new webpack.DefinePlugin(_.extend({
     NEWH5_ENV: JSON.stringify(config.NEWH5_ENV)

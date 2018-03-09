@@ -12,9 +12,8 @@ const config = _.merge({}, allConfig, allConfig[NODE_ENV.toUpperCase()])
 const zeptoPath = require.resolve('zepto/dist/zepto.min.js')
 
 const baseConfig = {
-    entry: {
-        index: 'src/js/main.js'
-    },
+    mode: config.NEWH5_ENV, //"development" | "production" | "none"
+    entry: { index: 'src/js/main.js' },
     module: {
         rules: [{
             test: zeptoPath,

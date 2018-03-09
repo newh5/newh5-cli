@@ -47,7 +47,6 @@ module.exports = {
   * [imgToBase64Dir](#imgtobase64dir)
   * [rules](#rules)
 * [Webpack plugins 相关配置](#webpack-plugins-相关配置)
-  * [commonsChunkPluginOptions](#commonschunkpluginoptions)
   * [definePluginOptions](#definepluginoptions)
   * [cssLoaderOptions](#cssloaderoptions)
   * [htmlWebpackPluginOptions](#htmlwebpackpluginoptions)
@@ -236,7 +235,7 @@ Zoom 缩放的基准 | 默认为 'width'，以屏幕的宽度进行缩放
 
 ## Webpack plugins 相关配置
 
-### commonsChunkPluginOptions
+### commonsChunkPluginOptions (webpack4 已移除， 参考最新optimize.splitChunks)
 
 > 参考 [`webpack.CommonsChunkPlugin`](https://webpack.js.org/plugins/commons-chunk-plugin/)
 
