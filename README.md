@@ -31,6 +31,8 @@ npm install newh5-cli
 - [less]()
 - [node-sass]()
 - [sass]()
+- [download-git-repo: Download and extract a git repository (GitHub, GitLab, Bitbucket) from node.](https://www.npmjs.com/package/download-git-repo)
+- [inquirer: A collection of common interactive command line user interfaces.](https://www.npmjs.com/package/inquirer#documentation)
 
 
 ## Tips
