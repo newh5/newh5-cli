@@ -47,3 +47,7 @@ cross-spawn 模块是解决跨平台调用系统命令的问题，Node.js 的子
 
 ## loaders
 css-loader exports-loader file-loader html-loader image-webpack-loader less-loader postcss-loader sass-loader script-loader style-loader stylus-loader url-loader
+
+
+## babel 
+babel-cli babel-core babel-plugin-transform-runtime babel-polyfill babel-preset-es2015 babel-preset-node5 babel-preset-react

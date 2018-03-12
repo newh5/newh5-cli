@@ -1,3 +1,13 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --harmony
 
-console.log('hello world')
+const spawn = require('cross-spawn')
+const program = require('commander')
+
+program.parse(process.argv)
+
+const result = spawn.sync(
+  'babel-node', [require.resolve('../src/deploy')].concat(program.args), {
+    stdio: 'inherit'
+  }
+)
+process.exit(result.status)

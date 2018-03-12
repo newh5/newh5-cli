@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --harmony
 
 const spawn = require('cross-spawn')
 const path = require('path')
@@ -25,7 +25,7 @@ if (program.archive && typeof program.archive === 'string') {
 
 
 const result = spawn.sync(
-    'node', [
+    'babel-node', [
         require.resolve('../src/build'),
         program.debug ? program.debug : '',
         program.archive ? program.archive : '',

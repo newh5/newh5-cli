@@ -6,7 +6,7 @@ const program = require('commander')
 program.parse(process.argv)
 
 const result = spawn.sync(
-  'node', [require.resolve('../src/start')].concat(program.args), {
+  'babel-node', [require.resolve('../src/start')].concat(program.args), {
     stdio: 'inherit'
   }
 )
