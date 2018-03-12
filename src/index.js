@@ -45,3 +45,12 @@ if (commander.args.length < 1) {
     console.log('Welcome!')
     console.log(commander.helpInformation())
 }
+
+if (!commander.runningCommand) {
+    console.log('')
+    console.log('  Unknow command: ' + commander.args.join(' '))
+    console.log('')
+    console.log('  See help `newh5 help`')
+    console.log('')
+    // commander.help()
+  }

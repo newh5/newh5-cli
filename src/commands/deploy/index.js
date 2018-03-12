@@ -1,6 +1,7 @@
 #!/usr/bin/env node --harmony
 
 const spawn = require('cross-spawn')
+import DeployGit from './deploy-git'
 
 /**
 * @exports
@@ -9,18 +10,26 @@ const spawn = require('cross-spawn')
 export default commander => {
   commander
     .command('deploy')
+    .option('-m, --commitInfo <commitInfo>', 'set commit message when deploy')
     .description('deploy projects')
     .action(() => {
-      run()
+      run({
+        name: 'NewPorject',
+        commitInfo: commander.commitInfo ? commander.commitInfo : ''
+      })
     })
 }
 
 
-function run() {
-  const result = spawn.sync(
-    'node', [require.resolve('./deploy')].concat(process.argv), {
-      stdio: 'inherit'
-    }
-  )
-  process.exit(result.status)
+function run(config) {
+
+  let deployCommand = new DeployGit()
+  deployCommand.execute(config)
+
+  // const result = spawn.sync(
+  //   'node', [require.resolve('./deploy')].concat(process.argv), {
+  //     stdio: 'inherit'
+  //   }
+  // )
+  // process.exit(result.status)
 }
