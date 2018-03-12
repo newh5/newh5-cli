@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --harmony
 
 const spawn = require('cross-spawn')
 const program = require('commander')
