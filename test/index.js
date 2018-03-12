@@ -16,3 +16,8 @@ buildCmd.execute({
     debug: '',
     archive: ''
 })
+
+
+// babel-node /Users/peter/works/github/taoqianbao/tqb-h5-cli/test/index.js
+
+// babel-node /Users/peter/works/github/taoqianbao/tqb-h5-cli/src/commands/deploy/deploy.js

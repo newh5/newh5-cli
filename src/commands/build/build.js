@@ -18,13 +18,13 @@ export default class BuildComd {
   /**
    * init 
    */
-  execute(config) {
+  async execute(config) {
 
     const buildPath = webpackConfig.output.path
     const debug = config.debug  //process.argv[2]
     this.archiveName = config.archiveName //process.argv[3]
 
-    clearConsole()
+    // clearConsole()
 
     if (debug) {
       let value = ''
@@ -55,7 +55,7 @@ export default class BuildComd {
     console.log(chalk.cyan('  Empty directory: ') + chalk.cyan.inverse(buildPath))
     fs.emptyDirSync(buildPath)
 
-    this.build()
+    await this.build()
   }
 
   /**

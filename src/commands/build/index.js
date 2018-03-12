@@ -18,12 +18,12 @@ export default commander => {
         .description('build projects')
         .option('-d, --debug <key>', 'print `key` corresponding configuration')
         .option('-a, --archive [name]', 'archive output directory, support: ' + ARCHIVE_TYPE)
-        .action(() => {
-            runBuild(commander)
+        .action(async () => {
+            await runBuild(commander)
         })
 }
 
-function runBuild() {
+async function runBuild() {
 
     if (commander.archive && typeof commander.archive === 'string') {
         let archiveType = path.extname(commander.archive).slice(1)
@@ -36,7 +36,7 @@ function runBuild() {
     }
 
     let buildCommand = new BuildCommand()
-    buildCommand.execute({
+    await buildCommand.execute({
         debug: commander.debug ? commander.debug : '',
         archive: commander.archive ? commander.archive : ''
     })

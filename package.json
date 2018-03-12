@@ -64,6 +64,7 @@
     "less": "^3.0.1",
     "less-loader": "^4.0.6",
     "lodash": "^4.17.5",
+    "ncp": "^2.0.0",
     "node-sass": "^4.7.2",
     "npm-install-webpack-plugin": "^4.0.5",
     "ora": "^2.0.0",
