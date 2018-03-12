@@ -17,7 +17,6 @@ async function isCDN() {
     })
 }
 
-
 async function run() {
     let result = await isCDN()
     console.log(result)

@@ -1,6 +1,6 @@
 # 配置
 
-`newh5` 基于 `webpack`，同时整合了很多 `webpack 插件`，大部分配置项都跟 `webpack` 和 `webpack 插件` 有关，配置都统一在 `.newh5.config.js` 中进行设置。
+`newh5` 基于 `webpack4`，同时整合了很多 `webpack 插件`，大部分配置项都跟 `webpack` 和 `webpack 插件` 有关，配置都统一在 `.newh5.config.js` 中进行设置。
 
 配置文件格式：
 
@@ -22,8 +22,6 @@ module.exports = {
 运行 `newh5 start` 时，使用 `基础配置` 和 `开发配置`，`开发配置` 中的配置项优先级更高。
 
 运行 `newh5 build` 时，则使用 `基础配置` 和 `构建配置`，`构建配置` 中的配置项优先级更高。
-
-
 
 
 * [基本配置](#基本配置)
@@ -65,8 +63,6 @@ module.exports = {
   * [enableCSSCompress](#enablecsscompress)
   * [enableHTMLCompress](#enablehtmlcompress)
   * [enableImageMin](#enableimagemin)
-
-
 
 
 ## 基本配置

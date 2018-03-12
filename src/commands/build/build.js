@@ -7,7 +7,7 @@ const chalk = require('chalk')
 const _ = require('lodash')
 const webpack = require('webpack')
 const clearConsole = require('react-dev-utils/clearConsole')
-const webpackConfig = require('../webpack/webpack.config.build.js')
+const webpackConfig = require('../../webpack/webpack.config.build.js')
 const archiver = require('archiver')
 
 const buildPath = webpackConfig.output.path
@@ -49,9 +49,6 @@ fs.emptyDirSync(buildPath)
 console.log('')
 console.log(chalk.cyan('  Build begin ...'))
 console.log('')
-
-console.log(webpackConfig)
-console.log('------------------------------------------------------')
 
 webpack(webpackConfig, function (err, stats) {
   if (err) throw err
