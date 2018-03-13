@@ -1,5 +1,3 @@
-// 因为使用了babel-cli,可以在node中使用es6; 具体用法 http://babeljs.io/docs/usage/cli/
-
 const inquirer = require('inquirer')
 import DeployGit from './deploy-git'
 

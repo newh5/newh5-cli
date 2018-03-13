@@ -1,5 +1,5 @@
 /**
- * 发布xadmin项目
+ * 发布
  */
 import path from 'path'
 import fs from 'fs'
