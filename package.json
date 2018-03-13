@@ -1,6 +1,6 @@
 {
   "name": "newh5-cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "HTML5 boilerplate and build tool",
   "author": "taoqianbao",
   "main": "index.js",
