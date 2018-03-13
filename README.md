@@ -6,11 +6,38 @@ newh5 - 面向开发者的灵活可扩展的 HTML5 构建工具，提供命令�
 
 ![架构图](./screenshot/artiche.png)
 
+## 解决方案 
 
-## Usage
+### 基础环境搭建
+1. 代码库 gitlab
+2. 私有库 npm私服工具verdaccio
 
+### 开发环境搭建
+1. 本地NODEJS安装，IDE工具(VSCODE,Sublime...)安装
+2. 申请GIT仓库
+- 管理员创建新Group，Group内每个单项目（单页面）创建一个库
+- 管理员创建编译仓，如名称 (newh5_build)，用于后续项目基础部署使用
+- 开发人员申请项目（单页面）仓库，由管理员开通，保证名称唯一性，规则及规律
+3. 安装脚手架 (newh5-cli)
 ```sh
 npm install newh5-cli
+newh5 -h
+```
+
+### 部署环境搭建
+1. CENTOS+NGINX
+2. DevOpads
+### 集成环境搭建
+1. Jenkins
+### 测试环境搭建
+1. PhotomJS
+
+## Usage
+```SH
+newh5 init -t base
+newh5 start
+newh5 build
+newh5 deploy sit/uat/prod
 ```
 
 ## 知识图
