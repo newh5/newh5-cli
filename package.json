@@ -1,18 +1,20 @@
 {
   "name": "newh5-cli",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "HTML5 boilerplate and build tool",
   "author": "taoqianbao",
   "main": "index.js",
   "bin": {
-    "newh5": "./bin/newh5.js"
+    "newh5": "./bin/index.js"
   },
   "engines": {
     "node": ">=6"
   },
   "scripts": {
+    "build": "babel src --out-dir bin --ignore test.js",
+    "prepublish": "npm run build",
     "commit": "git-cz",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "babel-node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -36,8 +38,8 @@
     "archiver": "^2.1.1",
     "autoprefixer": "^8.1.0",
     "axios": "^0.18.0",
-    "babel-core": "^6.26.0",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
@@ -53,6 +55,7 @@
     "file-loader": "^1.1.11",
     "fs": "0.0.1-security",
     "fs-extra": "^5.0.0",
+    "git-repository": "^0.1.4",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.0.6",
     "image-webpack-loader": "^4.1.0",
@@ -61,6 +64,7 @@
     "less": "^3.0.1",
     "less-loader": "^4.0.6",
     "lodash": "^4.17.5",
+    "ncp": "^2.0.0",
     "node-sass": "^4.7.2",
     "npm-install-webpack-plugin": "^4.0.5",
     "ora": "^2.0.0",

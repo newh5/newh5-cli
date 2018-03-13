@@ -11,11 +11,12 @@ const clearConsole = require('react-dev-utils/clearConsole')
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages')
 const openBrowser = require('react-dev-utils/openBrowser')
 
-const allConfig = require('../config/index.js')
-const webpackConfig = require('../webpack/webpack.config.dev.js')
+const allConfig = require('../../config/index.js')
+const webpackConfig = require('../../webpack/webpack.config.dev.js')
 const isInteractive = process.stdout.isTTY
 
 let isFirstRun = true
+let compiler
 
 function setupCompiler(host, port) {
   compiler = webpack(webpackConfig)
