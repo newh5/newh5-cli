@@ -1,9 +1,9 @@
-import { getCurrentRemoteURL, getCurrentBranchName, createEmptyBranch as newEmptyBranch, gotoBranch } from './git-repo';
+import { getCurrentRemoteURL, getCurrentBranch, createEmptyBranch as newEmptyBranch, gotoBranch } from './git-repo';
 import { exec, spawn } from './cp';
 
 
 export const getRemoteURL = getCurrentRemoteURL;
-export const getBranchName = getCurrentBranchName;
+export const getBranchName = getCurrentBranch;
 export const createEmptyBranch = newEmptyBranch;
 export const goBranch = gotoBranch;
 

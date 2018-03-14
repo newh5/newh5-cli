@@ -14,7 +14,7 @@
     "build": "babel src --out-dir bin --ignore test.js",
     "prepublish": "npm run build",
     "commit": "git-cz",
-    "dev": "babel-node src/index.js"
+    "dev": "DEBUG=newh5-cli:* babel-node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -49,6 +49,7 @@
     "commander": "^2.14.1",
     "cross-spawn": "^6.0.5",
     "css-loader": "^0.28.10",
+    "debug": "^3.1.0",
     "download-git-repo": "^1.0.2",
     "exports-loader": "^0.7.0",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",

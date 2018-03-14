@@ -5,6 +5,19 @@ const axios = require('axios')
 const reposUrl = 'https://api.github.com/users/newh5-templates/repos'
 
 /**
+* @exports
+* @param {Commander} commander 定义命令的基本类库实例
+*/
+export default commander => {
+    commander
+        .command('list')
+        .description('list templates')
+        .action(() => {
+            Init()
+        })
+}
+
+/**
  * init
  */
 function Init() {
@@ -18,6 +31,13 @@ function Init() {
             let { status, statusText, headers, config, data } = response
             const requestBody = data
             if (Array.isArray(requestBody)) {
+
+                let deployIndex = requestBody.findIndex(o => o.name == 'newh5-build')
+                if (deployIndex >= 0) {
+                    requestBody.splice(deployIndex, 1)
+                }
+                // requestBody = requestBody.filter(o => o.name != 'newh5-build')
+
                 console.log()
                 console.log('  All templates:')
                 console.log()
@@ -35,17 +55,3 @@ function Init() {
             console.error(error)
         })
 }
-
-
-/**
-* @exports
-* @param {Commander} commander 定义命令的基本类库实例
-*/
-export default commander => {
-    commander
-        .command('list')
-        .description('list templates')
-        .action(() => {
-            Init();
-        })
-};

@@ -1,3 +1,6 @@
+/**
+ * test case for deploy-git.js
+ */
 const inquirer = require('inquirer')
 import DeployGit from './deploy-git'
 

@@ -1,26 +1,36 @@
 #!/usr/bin/env node --harmony
+const debug = require('debug')('newh5-cli:MainIndex')
 
-// require("babel-register")
-require("babel-polyfill")
+debug('process.cwd: %s', process.cwd())
+debug('__dirname: %s', __dirname)
+process.env.Newh5_BuildPath = __dirname
 
-const commander = require('commander')
+process.env._.indexOf('babel-node') < 0 && require("babel-polyfill");
+
+import program from 'commander'
+import listCommands from './commands/list/'
+import initCommands from './commands/init/'
+import startCommands from './commands/start/'
+import buildCommands from './commands/build/'
+import deployCommands from './commands/deploy/'
 const version = require('../package.json').version
-const listCommands = require('./commands/list/').default
-const initCommands = require('./commands/init/').default
-const startCommands = require('./commands/start').default
-const buildCommands = require('./commands/build').default
-const deployCommands = require('./commands/deploy').default
 
 'use strict';
 
-commander.version(version)
-listCommands(commander)
-initCommands(commander)
-startCommands(commander)
-buildCommands(commander)
-deployCommands(commander)
+program.version(version)
+listCommands(program)
+initCommands(program)
+startCommands(program)
+buildCommands(program)
+deployCommands(program)
 
-commander.on('--help', function () {
+program.command('help')
+    .description('newh5 help')
+    .action(() => {
+        program.help()
+    })
+
+program.on('--help', function () {
     console.log('')
     console.log('  Examples:')
     console.log('')
@@ -28,7 +38,7 @@ commander.on('--help', function () {
     console.log('    $ newh5 init')
     console.log('')
     console.log('    # Base on template init project')
-    console.log('    $ newh5 init -t panorama')
+    console.log('    $ newh5 init -t base')
     console.log('')
     console.log('    # See all templates')
     console.log('    $ newh5 list')
@@ -39,18 +49,23 @@ commander.on('--help', function () {
     console.log('')
 })
 
-commander.parse(process.argv)
+program.parse(process.argv)
 
-if (commander.args.length < 1) {
+if (program.args.length < 1) {
     console.log('Welcome!')
-    console.log(commander.helpInformation())
+    console.log(program.helpInformation())
+} else {
+    console.log('')
+    program.args.forEach(o => {
+        debug(`name=${o._name}, description= ${o._description}`)
+    })
 }
 
-if (!commander.runningCommand) {
+if (!program.runningCommand) {
     console.log('')
-    console.log('  Unknow command: ' + commander.args.join(' '))
+    console.log('  Unknow command: ' + process.argv.join(' '))
     console.log('')
     console.log('  See help `newh5 help`')
     console.log('')
-    // commander.help()
-  }
+    // program.help()
+}

@@ -1,6 +1,4 @@
-/**
- * 发布
- */
+const debug = require('debug')('newh5-cli:Deploy-git')
 import path from 'path'
 import fs from 'fs'
 import Repo from 'git-repository'
@@ -17,21 +15,6 @@ const repoPath = path.join(process.cwd(), 'build')
 const deployBranchName = 'deploy'
 const remoteName = 'origin'
 
-// async function isCDN() {
-//   return new Promise(resolve => {
-//     inquirer.prompt(
-//       [{
-//         type: 'list',
-//         name: 'isCDN',
-//         message: 'Will you upload static files to CDN? [CTRL-C to Exit]',
-//         choices: ['no', 'yes']
-//       }]
-//     ).then(function (answer) {
-//       resolve(answer)
-//     })
-//   })
-// }
-
 export default class DeployGit {
   /**
    * 
@@ -47,8 +30,8 @@ export default class DeployGit {
     const remoteURL = await getRemoteURL(currentPath)
     const branchName = await getBranchName(currentPath)
 
-    console.log("repoPath, deployBranchName, remoteName=",chalk.red(repoPath, deployBranchName, remoteName))
-    console.log("currentPath, remoteURL, branchName=",chalk.red(currentPath, remoteURL, branchName))
+    debug("repoPath,deployBranchName, remoteName=%s", chalk.red(repoPath, deployBranchName, remoteName))
+    debug("currentPath, remoteURL, branchName=%s", chalk.red(currentPath, remoteURL, branchName))
 
     // 检测build文件夹是否存在, 因为老项目肯定是没有的, 没有就取创建一个
     await this.checkRepoPath()
@@ -66,7 +49,7 @@ export default class DeployGit {
     await git.setRemote(remoteName, remoteURL)
 
     if (await git.hasRef(remoteURL, deployBranchName)) {
-      
+
       await git.fetch(remoteName)
 
       await goBranch(deployBranchName, repoPath)
@@ -95,7 +78,7 @@ export default class DeployGit {
       await git.add('--all .')
       await git.commit(config.commitInfo || `${config.name} deploy`)
       await git.push(remoteName, deployBranchName)
-      
+
       console.log(chalk.green('deploy completed v(^O^)v'))
 
     } catch (err) {

@@ -78,3 +78,14 @@ css-loader exports-loader file-loader html-loader image-webpack-loader less-load
 
 ## babel 
 babel-cli babel-core babel-plugin-transform-runtime babel-polyfill babel-preset-es2015 babel-preset-node5 babel-preset-react
+
+
+
+## 启示
+项目的灵感来自于公司营销活动ffan-activity项目，同时参考 elf项目
+
+感谢 @o2team 的 https://github.com/o2team/elf
+
+## 许可
+
+MIT
