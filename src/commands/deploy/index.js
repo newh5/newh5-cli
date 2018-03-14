@@ -2,9 +2,9 @@
 
 const debug = require('debug')('newh5-cli:Deploy')
 const chalk = require('chalk')
-import DeployGit    from './deploy-git'
 import * as gitGepo from '../../tools/git-repo'
 import task         from '../../tools/run'
+import DeployGit    from './deploy-onegit'
 
 /**
 * @exports
@@ -13,7 +13,7 @@ import task         from '../../tools/run'
 export default commander => {
   commander
     .command('deploy [env]')    //env=['sit','uat','prod']
-    .option('-t, --target <target>', 'set deploy target env when deploy', 'deploy')
+    .option('-t, --target <target>', 'set deploy target env when deploy')
     .option('-m, --commitInfo <commitInfo>', 'set commit message when deploy')
     .description('deploy projects')
     .action((env, options) => {
@@ -30,7 +30,7 @@ function run(config) {
   debug('Newh5_BuildPath: %s', process.env.Newh5_BuildPath)
   debug('deploy args = %o', config)
   
-  config.BuildPath = process.env.Newh5_BuildPath
+  config.localRepoBuildPath = process.env.Newh5_BuildPath
 
   console.log(chalk.blue(`$ git status -s`))
   const status = gitGepo.gitCommand('status -s')

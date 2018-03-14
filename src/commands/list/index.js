@@ -2,7 +2,7 @@
 
 const ora = require('ora')
 const axios = require('axios')
-const reposUrl = 'https://api.github.com/users/newh5-templates/repos'
+import globalConfig from '../../newh5.config'
 
 /**
 * @exports
@@ -23,7 +23,7 @@ export default commander => {
 function Init() {
     const spinner = ora('Loading template list').start()
 
-    axios.get(reposUrl, {
+    axios.get(globalConfig.TemplateRepoAPIUrl, {
         headers: { 'User-Agent': 'newh5-cli' }
     })
         .then(response => {

@@ -1,3 +1,6 @@
+/**
+ * deploy all pages to selected repo's branch.
+ */
 const debug = require('debug')('newh5-cli:Deploy-git')
 import path from 'path'
 import fs from 'fs'
