@@ -6,6 +6,7 @@ node_modules
 dist
 doc
 src
+_build
 
 .vscode
 .github

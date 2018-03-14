@@ -28,8 +28,9 @@ export default commander => {
 function run(config) {
 
   debug('Newh5_BuildPath: %s', process.env.Newh5_BuildPath)
-
   debug('deploy args = %o', config)
+  
+  config.BuildPath = process.env.Newh5_BuildPath
 
   console.log(chalk.blue(`$ git status -s`))
   const status = gitGepo.gitCommand('status -s')

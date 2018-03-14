@@ -4,3 +4,5 @@ node_modules/
 bin/
 npm-debug.log
 build/
+src/_build
+_build/

@@ -1,12 +1,8 @@
 #!/usr/bin/env node --harmony
 const debug = require('debug')('newh5-cli:MainIndex')
-
-debug('process.cwd: %s', process.cwd())
-debug('__dirname: %s', __dirname)
-process.env.Newh5_BuildPath = __dirname
-
 process.env._.indexOf('babel-node') < 0 && require("babel-polyfill");
 
+import path from 'path'
 import program from 'commander'
 import listCommands from './commands/list/'
 import initCommands from './commands/init/'
@@ -16,6 +12,11 @@ import deployCommands from './commands/deploy/'
 const version = require('../package.json').version
 
 'use strict';
+
+debug('process.cwd: %s', process.cwd())
+debug('__dirname: %s', __dirname)
+
+process.env.Newh5_BuildPath = path.resolve(__dirname, "../_build")
 
 program.version(version)
 listCommands(program)

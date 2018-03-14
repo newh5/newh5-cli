@@ -11,9 +11,19 @@ import copy from '../../tools/copy'
 
 'use strict';
 
-const repoPath = path.join(process.cwd(), 'build')
+let repoPath = path.join(process.cwd(), 'build')
 const deployBranchName = 'deploy'
 const remoteName = 'origin'
+
+/**
+ * default config for DeployGit
+ */
+const defConfig = {
+  name: 'NewPorject',
+  target: 'sit',
+  BuildPath: './build',
+  commitInfo: 'new commit message'
+}
 
 export default class DeployGit {
   /**
@@ -21,6 +31,8 @@ export default class DeployGit {
    * @param {Object} config
    */
   async execute(config) {
+
+    repoPath = config.BuildPath || repoPath
 
     // let result = await isCDN()
     // console.log(result)
@@ -34,7 +46,7 @@ export default class DeployGit {
     debug("currentPath, remoteURL, branchName=%s", chalk.red(currentPath, remoteURL, branchName))
 
     // 检测build文件夹是否存在, 因为老项目肯定是没有的, 没有就取创建一个
-    await this.checkRepoPath()
+    await this.checkRepoPath(repoPath)
     console.log(`current git remote url is ${remoteURL}`)
     if (!remoteURL) {
       console.error(chalk.red('本地没有找到可用的git'))
@@ -86,19 +98,20 @@ export default class DeployGit {
       console.error(err)
     }
   }
+
   /**
    * 针对老项目的文件夹创建
    * 
    * @returns Promise
    */
-  checkRepoPath() {
-    console.log(chalk.yellow(`开始检查发布目录, 检查的路径是${repoPath}`))
+  checkRepoPath(path) {
+    console.log(chalk.yellow(`开始检查发布目录, 检查的路径是${path}`))
     return new Promise((resolve, reject) => {
-      fs.stat(repoPath, (err, stat) => {
+      fs.stat(path, (err, stat) => {
         if (err) {
-          this.checkRepoPathErrorHandler(err, resolve, reject)
+          this.checkRepoPathErrorHandler(err, resolve, reject, path)
         } else {
-          this.checkRepoPathSuccessHandler(stat, resolve)
+          this.checkRepoPathSuccessHandler(stat, resolve, path)
         }
       })
     })
@@ -109,10 +122,10 @@ export default class DeployGit {
    * @param {Function} resolve Promise.resolve
    * @param {Function} reject Promise.reject
    */
-  checkRepoPathErrorHandler(err, resolve, reject) {
+  checkRepoPathErrorHandler(err, resolve, reject, path) {
     if (err.code == 'ENOENT') {
       console.error('未找到目录')
-      this.createDir()
+      this.createDir(path)
       resolve()
       return
     }
@@ -122,18 +135,18 @@ export default class DeployGit {
    * @param {Object} stat fs.stat 获取的参数
    * @param {Function} resolve Promise.resolve
    */
-  checkRepoPathSuccessHandler(stat, resolve) {
+  checkRepoPathSuccessHandler(stat, resolve, path) {
     if (!stat.isDirectory()) {
-      this.createDir()
+      this.createDir(path)
     }
     resolve()
   }
   /**
    * 创建build目录
    */
-  createDir() {
+  createDir(path) {
     console.log(chalk.yellow('开始创建目录'))
-    fs.mkdirSync(repoPath)
+    fs.mkdirSync(path)
   }
 
 }
