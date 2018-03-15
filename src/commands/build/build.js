@@ -18,11 +18,11 @@ export default class BuildComd {
   /**
    * init 
    */
-  async execute(config) {
+  async execute(opts) {
 
-    const buildPath = webpackConfig.output.path
-    const debug = config.debug  //process.argv[2]
-    this.archiveName = config.archiveName //process.argv[3]
+    const buildPath = webpackConfig.output.path   //build dist path
+    const debug = opts.debug              //process.argv[2]
+    this.archiveName = opts.archiveName   //process.argv[3]
 
     // clearConsole()
 

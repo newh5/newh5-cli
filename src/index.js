@@ -16,6 +16,7 @@ const version = require('../package.json').version
 debug('process.cwd: %s', process.cwd())
 debug('__dirname: %s', __dirname)
 
+process.env.Newh5_ProjectName = path.basename(process.cwd())
 process.env.Newh5_BuildPath = path.resolve(__dirname, "../_build")
 
 program.version(version)

@@ -1,3 +1,4 @@
+
 module.exports = {
     devPort: '8000', // dev server 运行的端口
     designLayoutWidth: 750, // 设计稿的宽度 | 默认750，如果开启 Zoom 则直接按照设计稿宽度和屏幕宽度进行缩放
@@ -14,9 +15,9 @@ module.exports = {
     output: {
         path: 'dist',
         publicPath: './',
-        filename: 'js/bundle.js'
+        filename: `assets/js/[name]_[hash:4].js`
     },
-    outputCss: 'css/app.css',
+    outputCss: `assets/css/[name]_[hash:4].css`,
     outputCssPublicPath: '../',
     imgLoaderQuery: {
         limit: 1000,

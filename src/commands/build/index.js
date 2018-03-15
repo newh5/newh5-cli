@@ -19,14 +19,22 @@ export default commander => {
         .option('-d, --debug <key>', 'print `key` corresponding configuration')
         .option('-a, --archive [name]', 'archive output directory, support: ' + ARCHIVE_TYPE)
         .action(async () => {
-            await runBuild(commander)
+            let configs = {
+                archive: commander.archive,
+                debug: commander.debug
+            }
+            await runBuild(configs)
         })
 }
 
-async function runBuild() {
+/**
+ * 
+ * @param {*} opts { archive, debug }
+ */
+async function runBuild(opts) {
 
-    if (commander.archive && typeof commander.archive === 'string') {
-        let archiveType = path.extname(commander.archive).slice(1)
+    if (opts.archive && typeof opts.archive === 'string') {
+        let archiveType = path.extname(opts.archive).slice(1)
         if (!~ARCHIVE_TYPE.indexOf(archiveType)) {
             console.log('')
             console.log(chalk.red('  archive filename suffix only support: ') + chalk.bgRed(ARCHIVE_TYPE))
@@ -37,16 +45,17 @@ async function runBuild() {
 
     let buildCommand = new BuildCommand()
     await buildCommand.execute({
-        debug: commander.debug ? commander.debug : '',
-        archive: commander.archive ? commander.archive : ''
+        projectname: process.env.Newh5_ProjectName,
+        debug: opts.debug ? opts.debug : '',
+        archive: opts.archive ? opts.archive : ''
     })
 
     // const result = spawn.sync(
     //     'node', [
     //         require.resolve('./build'),
-    //         commander.debug ? commander.debug : '',
-    //         commander.archive ? commander.archive : '',
-    //     ].concat(commander.args), {
+    //         opts.debug ? opts.debug : '',
+    //         opts.archive ? opts.archive : '',
+    //     ].concat(opts.args), {
     //         stdio: 'inherit'
     //     }
     // )

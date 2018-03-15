@@ -5,7 +5,10 @@ const _ = require('lodash')
 const { isExist } = require('../tools/utils.js')
 const defaultConfig = require('./default.js')
 const { CONFIG_FILENAME } = require('./const.js')
-let config = {}
+let config = {}                                   //user's custom configs
+import getConfig from './getConfig.js'            //dynamic configs
+
+let dynamicConfigs = getConfig({ name: path.basename(process.cwd()) })
 
 const appDirectory = fs.realpathSync(process.cwd())
 function resolveApp(relativePath) {
@@ -28,4 +31,4 @@ try {
   process.exit(1)
 }
 
-module.exports = _.merge(defaultConfig, config)
+module.exports = _.merge(defaultConfig, dynamicConfigs, config)
