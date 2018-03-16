@@ -46,13 +46,15 @@ function setupCompiler(host, port) {
       return
     }
 
+    let startUrl = `http://${host}:${port}/newh5/${process.env.Newh5_ProjectName}.html`
+
     if (isFirstRun) {
       console.log('')
       console.log(chalk.cyan('  Compile finished'))
       console.log('')
       console.log(chalk.cyan('  Webpack dev server running at: '))
       console.log('')
-      console.log(chalk.cyan('  http://' + host + ':' + port + '/'))
+      console.log(chalk.cyan(startUrl))
       console.log('')
       if (allConfig.DEVELOPMENT.enableDisplayQR) {
         qrcode.generate('http://' + host + ':' + port + '/', {
@@ -79,7 +81,8 @@ function runDevServer(host, port) {
     console.log()
 
     if (isInteractive) {
-      openBrowser('http://' + host + ':' + port + '/')
+      let startUrl = `http://${host}:${port}/newh5/${process.env.Newh5_ProjectName}.html`
+      openBrowser(startUrl)
     }
   })
 }

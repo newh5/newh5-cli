@@ -10,7 +10,7 @@ function luanch() {
   console.log(chalk.cyan('  Starting the development server...'))
 
   const result = spawn.sync(
-    'node', [require.resolve('./start.js')].concat(process.argv), {
+    'babel-node', [require.resolve('./start.js')].concat(process.argv), {
       stdio: 'inherit'
     }
   )

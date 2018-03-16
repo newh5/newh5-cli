@@ -7,5 +7,9 @@ export default {
     DeployRepoName: 'origin',
 
     //设置模版库API-URL地址
-    TemplateRepoAPIUrl: 'https://api.github.com/users/newh5-templates/repos'
+    TemplateRepoAPIUrl: 'https://api.github.com/users/newh5-templates/repos',
+
+    //设置页面CDN地址
+    CdnPublicURL: 'https://nres.ffan.com/newh5/'
+
 }

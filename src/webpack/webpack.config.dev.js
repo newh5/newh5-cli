@@ -70,6 +70,20 @@ module.exports = merge(baseWebpackConfig, {
             ignored: /node_modules/,
             aggregateTimeout: 300,
             poll: 1000
+        },
+        proxy: {
+            '/api/*': {
+                target: "https://h5.sit.ffan.com/",
+                changeOrigin: true,
+                secure: false
+            },
+            '/newh5/*': {
+                target: 'http://127.0.0.1:' + config.devPort + '/',
+                pathRewrite: function (path, req) {
+                    path = path.replace('/newh5/assets/', '/assets/');
+                    return path.replace('/newh5/', '/html/');
+                }
+            }
         }
     },
     plugins: [
